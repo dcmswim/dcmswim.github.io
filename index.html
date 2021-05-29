@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width" />
 		<link rel="stylesheet" href="./css/portfolio_css.css">
+        
     </head>
 	<!-- BODY -->
     <body class="background">
@@ -13,9 +14,10 @@
         
         <div class="navbar">
             <a class="active" href="#home">Home</a>
+            <a href = "#slideshow">Slideshow</a>
             <a href="#about">About</a>
             <a href="#github">GitHub</a>
-            <a href="#contact">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()">Contact</a>
         </div>
 
         <!-- END NAVBAR -->
@@ -37,9 +39,9 @@
                         <br>
                         <br>It is not that you read a book, 
                         <br>
-                        <br>pass an examination, 
+                        <br>pass an exam, 
                         <br>
-                        <br>and finish with an education.
+                        <br>and finish with an education
                         <br>
                         <br>The whole of life is a process of learning.
                     </q>
@@ -54,6 +56,58 @@
                     <br>Thank you for stopping by!
                 </p>
             </strong>
+        </div>
+
+        <!-- SLIDE SHOW SECTION (NEW) -->
+        <div id="slideshow">
+            <div id="slideshow_background">
+                <div id="slideshow_container">
+                    <!-- SLIDE 1 OF 6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="slideshow/me_and_ralph.jpg" alt="picture of me">
+                        <div class="text">I look forward to working together on something new!</div>
+                    </div>
+                    <!-- SLIDE 2 OF 6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="slideshow/HTML_CSS_and_JavaScript.jpeg" alt="HTML, CSS, JS logos">
+                        <div class="text">I am a full-stack software developer,<br>training in:<br>HTML, CSS, JavaScript,</div>
+                    </div>
+                    <!-- SLIDE 3 OF 6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="slideshow/Python.png" alt="Python logo">
+                        <div class="text">the popular programming language Python,</div>
+                    </div>
+                    <!-- SLIDE 4 OF 6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="slideshow/C_Sharp_and_Dot_NET.png" alt="C# logo">
+                        <div class="text">C#, .NET Framework, ASP.NET, MVC, </div>
+                    </div>
+                    <!-- SLIDE 5 OF 6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="slideshow/SQL_and_Database.jpg" alt="SQL logo">
+                        <div class="text">back end development, databases, and SQL.</div>
+                    </div>
+                    <!-- SLIDE 6 OF 6 -->
+                    <div class="mySlides fade">
+                        <img class="slideshow_images" src="slideshow/Coding_1.jpg" alt="coding pic">
+                        <div class="text"><a class="white-text" onclick="openForm()" href="#contact">Contact me now!</a></div>
+                    </div>
+                    <!--PREV AND NEXT BUTTONS -->
+                    <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <br>
+
+                <!--SLIDESHOW DOTS -->
+                <div style="text-align: center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                </div>
+            </div>
         </div>
 
         <!-- ABOUT -->
@@ -102,22 +156,21 @@
 
         <!-- CONTACT SECTION -->
 
-        <div class="row" id="contact">
-            <!--CONTACT IMAGE, LEFT COLUMN-->
-            <div class="column_2 column_tall">
-                <img src="images/keyboard_1.jpg" alt="contact_image">
-            </div>
-            <!-- CONTACT FORM, RIGHT COLUMN -->
-            <div class="column_1 column_tall">
-                <h1>Contact</h1>
-                <form action="https://formspree.io/f/mgeraeyw" method="POST">
-                    <label>Name</label>
-                        <input type="text" placeholder="Please enter your name here">
-                    <label>Email</label>
-                        <input type="text" id="Email" name="Email" placeholder="Please enter your email here">
-                    <label>Message</label>
-                        <input type="text" id="Message" name="Message" placeholder="Please write your message here">
-                        <input type="submit" value="SUBMIT">
+        <div id="Contact">
+            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+            <div class="form-popup" id="myForm">
+                <form action="https://formspree.io/f/mgeraeyw" method="POST" class="form-container">
+                    <h1>Contact</h1>
+                    <label for="name"><b>Name</b></label>
+                        <input type="text" placeholder="Please enter your name here" name="name" required>
+                    <label for="phone"><b>Phone</b></label>
+                        <input type="text" placeholder="Enter phone number here" name="phone">
+                    <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="Please enter your email here" name="email" required>
+                    <label for="message"><b>Message</b></label>
+                        <input type="text" placeholder="Please write your message here" name="message">
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
                 </form>
             </div>
         </div>
@@ -129,5 +182,6 @@
                 <p class="center">David Meyer &nbsp; | &nbsp; <a href="https://github.com/dcmswim" target="_blank">dcmswim</a></p>
             </p>
         </footer>
+        <script src="js/portfolio.js"></script>   
     </body>
 </html>
